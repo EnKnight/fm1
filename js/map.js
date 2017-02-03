@@ -93,12 +93,14 @@
             var proys = {};
             var actual = null;
             var seleccionado = 0;
+            var moved = 0;
 
             for(var caso in mex){
-                if(caso == "bcn" || caso == "chh" || caso == "oax"){
-                    proys[caso] = false;
-                } else{
+                if(caso == "bcn" || caso == "jal" || caso == "ags" || caso == "gua" || caso == "que" || caso == "gro"
+                 || caso == "mex" || caso == "df" || caso == "mor" || caso == "pue"){
                     proys[caso] = true;
+                } else{
+                    proys[caso] = false;
                 }
             }
 
@@ -114,8 +116,14 @@
                     edo[0].style.cursor = "pointer";
                     //Cuando el mouse está sobre algún estado
                     edo[0].onmouseover = function () {
+                        /*if(seleccionado==0){
+                        }*/
+                        if(moved == 0){
+                            document.getElementById("ags").style.display = "block";
+                        }
                         if(seleccionado < 1){
-                            if(proys[estado]){                                
+                            moved++;                               
+                            if(proys[estado]){ 
                                 actual && mex[actual].animate({fill: "#d1d1d1", stroke: "#fff"}, 500) && (document.getElementById(actual).style.display = "");
                                 edo.animate({fill: edo.color, stroke: "#fff"}, 500);
                                 edo.toFront();
@@ -160,9 +168,9 @@
                         }                                                
                     };
                     //que cuando recién cargue la página, que coloree a Aguascalientes
-                    /*if (estado == "ags") {
+                    if (estado == "ags") {
                         edo[0].onmouseover();
-                    }*/
+                    }
                     //animación al darle click
                     edo[0].onclick = function(){
                         if(proys[estado]){
