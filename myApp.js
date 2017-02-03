@@ -3,25 +3,7 @@ var myApp = angular.module('myApp',['rzModule', 'ngAnimate', 'ngSanitize', 'mgcr
 //myApp.directive('myDirective', function() {});
 //myApp.factory('myService', function() {});
 
-myApp.controller('MyCtrl',['$scope', '$filter', function ($scope, $filter) {
-
-/*
-$scope.runSliderConfig = {
-     min:  0,
-     max:  120,
-     step: 10,
-   };
-   $scope.swimSliderConfig = {
-     min:  0,
-     max:  120,
-     step: 10,
-   };
-   $scope.sliderRanges = {
-     runMin: 0,
-     runMax: 120,
-     swimMin: 0,
-     swimMax: 120
-   }; */
+myApp.controller('MyCtrl',['$scope', '$filter','$http', function ($scope, $filter,$http) {
     $scope.minRangeSlider = {
         minValue: 0,
         maxValue: 5000000,
@@ -135,7 +117,97 @@ $scope.runSliderConfig = {
         "infosec": "45 años"
       }
     ];
-
+    /*#ags, #bcn, #bcs, #cam, #chp, #chh, #coa, #col, #df, #dur, #gua, #gro, #hid, #jal, #mex, #mic, #mor,
+    #nay, #nl, #oax, #pue, #que, #qro, #slp, #sin, #son, #tab, #tam, #tla, #ver, #yuc, #zac
+    $http.get("http://192.168.1.83/Ondecode/fm1/consultarestados.php")
+   .then(function (response) {$scope.estados = response.data.estados;});*/
+    $scope.estados = [
+      {
+        "id": "ags",
+        "img": "casa1.png",
+        "nom": "Aguascalientes",
+        "proyectos": 4,
+        "desc": "Viviendas",
+        "totaldesc": 597
+      },
+      {
+        "id": "bcn",
+        "img": "casa1.png",
+        "nom": "Baja California",
+        "proyectos": 2,
+        "desc": "Viviendas",
+        "totaldesc": 720
+      },
+      
+      {
+        "id": "df",
+        "img": "casa1.png",
+        "nom": "Ciudad de México",
+        "proyectos": 19,
+        "desc": "Viviendas",
+        "totaldesc": 2279
+      },
+      
+      {
+        "id": "gua",
+        "img": "casa1.png",
+        "nom": "Guanajuato",
+        "proyectos": 1,
+        "desc": "Viviendas",
+        "totaldesc": 880
+      },
+      {
+        "id": "gro",
+        "img": "casa1.png",
+        "nom": "Guerrero",
+        "proyectos": 2,
+        "desc": "Viviendas",
+        "totaldesc": 22
+      },      
+      {
+        "id": "jal",
+        "img": "casa1.png",
+        "nom": "Jalisco",
+        "proyectos": 6,
+        "desc": "Viviendas",
+        "totaldesc": 804
+      },
+      {
+        "id": "mex",
+        "img": "casa1.png",
+        "nom": "Estado de México",
+        "proyectos": 2,
+        "desc": "Viviendas",
+        "totaldesc":13192
+      },
+      
+      {
+        "id": "mor",
+        "img": "casa1.png",
+        "nom": "Morelos",
+        "proyectos": 1,
+        "desc": "Oficinas",
+        "totaldesc": 192
+      },
+      
+      {
+        "id": "pue",
+        "img": "casa1.png",
+        "nom": "Puebla",
+        "proyectos": 2,
+        "desc": "Viviendas",
+        "totaldesc": 334
+      },
+      {
+        "id": "que",
+        "img": "casa1.png",
+        "nom": "Querétaro",
+        "proyectos": 3,
+        "desc": "Viviendas",
+        "totaldesc": 360
+      }
+      
+    ];
 }]);
 
 
@@ -195,38 +267,3 @@ myApp.filter('unique', function() {
         return uniqueList;
     };
 });
-
-
-/*
-
-myApp.filter('hourMinFilter', function () {
-  return function (value) {
-    if (value === 120) return 'All'
-    var h = parseInt(value / 60);
-    var m = parseInt(value % 60);
-    var hStr = (h > 0) ? h + 'hr'  : '';
-    var mStr = (m > 0) ? m + 'min' : '';
-    var glue = (hStr && mStr) ? ' ' : '';
-    return hStr + glue + mStr;
-  };
-});
-
-myApp.filter('rangeFilter', function() {
-  return function(items, sliderRanges ) {
-    
-    var filtered = [];
-    var runMin = parseInt(sliderRanges.runMin);
-    var runMax = parseInt(sliderRanges.runMax);
-    var swimMin = parseInt(sliderRanges.swimMin);
-    var swimMax = parseInt(sliderRanges.swimMax);
-
-    angular.forEach(items, function(item) {
-      if((item.run_time >= runMin && item.run_time <= runMax) && (item.swim_time >= swimMin && item.swim_time <= swimMax)) {
-        filtered.push(item);
-      }
-    });
-    
-    return filtered;
-  };
-});
-*/
