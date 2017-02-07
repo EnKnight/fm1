@@ -267,3 +267,14 @@ myApp.filter('unique', function() {
         return uniqueList;
     };
 });
+
+myApp.directive('mapa', function($http){
+  return {
+    restrict: 'E',
+    scope: {
+      name: '@',
+      id: '@'
+    },
+    template: '<div id="{{scope.id}}"></div>',
+  };
+});
