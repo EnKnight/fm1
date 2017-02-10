@@ -223,7 +223,57 @@
                         </div>
                     <!-- </div> -->
                     <!-- <div class="col-md-8 col col-lg-8"> -->
-                        <div>
+                        <div class="infoedo">
+                        <div class="tablamgi">
+                            <table class="table tabla">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">MGI</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Proyecto</th>
+                                        <th>Cantidad</th>
+                                        <th>Tipo de inmueble</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-if="!getProjects(edo.id, 'mgi').length">
+                                        <td colspan="3">No hay proyectos</td>
+                                    </tr>
+                                    <tr ng-repeat="m in getProjects(edo.id, 'mgi')">
+                                        <td>{{ m.proyecto }}</td>
+                                        <td>{{ m.cantidad | number }}</td>
+                                        <td>{{ m.tipoinmueble }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <div class="tablafoinv" ng-class="{ 'overflow': getProjects(edo.id, 'mgi').length > 6 }">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">FOINVERSION</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Proyecto</th>
+                                        <th>Cantidad</th>
+                                        <th>Tipo de inmueble</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-if="!getProjects(edo.id, 'foinversion').length">
+                                        <td colspan="3">No hay proyectos</td>
+                                    </tr>
+                                    <tr ng-repeat="m in getProjects(edo.id, 'foinversion')">
+                                        <td>{{ m.proyecto }}</td>
+                                        <td>{{ m.cantidad | number }}</td>
+                                        <td>{{ m.tipoinmueble }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <!-- <div class="tabla">
+                            <div ng-repeat="owner in owners" ng-class="{ 'overflow': getProjects(edo.id, owner.id).length > 2 }">
                             <table class="table" ng-repeat="owner in owners">
                                 <thead>
                                     <tr>
@@ -231,9 +281,8 @@
                                     </tr>
                                     <tr>
                                         <th>Proyecto</th>
-                                        <th>Tipo de inmueble</th>
                                         <th>Cantidad</th>
-                                        <!-- <th>Owner</th> -->
+                                        <th>Tipo de inmueble</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -242,15 +291,37 @@
                                     </tr>
                                     <tr ng-repeat="m in getProjects(edo.id, owner.id)">
                                         <td>{{ m.proyecto }}</td>
-                                        <td>{{ m.tipoinmueble }}</td>
                                         <td>{{ m.cantidad | number }}</td>
-                                        <td>
-                                        <!--     <span ng-repeat="o in m.belongsTo">{{ getOwnerName(o) }}</span> -->
-                                        </td>
+                                        <td>{{ m.tipoinmueble }}</td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                                
+                            </div>
+                            </div> -->
+                            <!-- <table class="table" ng-repeat="owner in owners">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">{{ owner.name }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Proyecto</th>
+                                        <th>Cantidad</th>
+                                        <th>Tipo de inmueble</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-if="!getProjects(edo.id, owner.id).length">
+                                        <td colspan="3">No hay proyectos</td>
+                                    </tr>
+                                    <tr ng-repeat="m in getProjects(edo.id, owner.id)">
+                                        <td>{{ m.proyecto }}</td>
+                                        <td>{{ m.cantidad | number }}</td>
+                                        <td>{{ m.tipoinmueble }}</td>
+                                    </tr>
+                                </tbody>
+                            </table> -->
+                    </div>
                 </div>
             </div>
         </section>
