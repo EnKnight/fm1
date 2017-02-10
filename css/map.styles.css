@@ -12,7 +12,7 @@
     */
 }
 
-@media (min-width: 992px){
+@media (min-width: 768px){
     #ags, #bcn, #bcs, #cam, #chp, #chh, #coa, #col, #df, #dur, #gua, #gro, #hid, #jal, #mex, #mic, #mor,
     #nay, #nl, #oax, #pue, #que, #qro, #slp, #sin, #son, #tab, #tam, #tla, #ver, #yuc, #zac{
         margin: 50px auto;
@@ -20,15 +20,42 @@
         border-color: #ea9847;
         border-width: 8px;
     }
+    .infoedo{
+        max-height: 400px; 
+        /*overflow: scroll;*/
+    }
+
+    .tabla.overflow{
+        /*max-height: 200px;*/
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    .tablamgi{
+        max-height: 200px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    .tablafoinv{
+        max-height: 200px;
+    }
+
+    .tabla{
+        max-height: 200px;
+    }
 }
 
-@media (max-width: 991px){
+@media (max-width: 767px){
     #ags, #bcn, #bcs, #cam, #chp, #chh, #coa, #col, #df, #dur, #gua, #gro, #hid, #jal, #mex, #mic, #mor,
     #nay, #nl, #oax, #pue, #que, #qro, #slp, #sin, #son, #tab, #tam, #tla, #ver, #yuc, #zac{
         border-top: solid;
         border-color: #ea9847;
         border-width: 8px;
         margin: 0 auto;
+    }
+    .infoedo{
+        max-height: 300px; 
     }
 }
 
