@@ -118,11 +118,9 @@
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand page-scroll" href="#page-top">
-                        FM1 <!-- <img style="width: 5%; margin-top: 30px;" src="img/logo2-01.png"> -->
+                        FM1 
                     </a>
                 </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-center">
                         <li>
@@ -142,9 +140,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- /.navbar-collapse -->
             </div>
-            <!-- /.container-fluid -->
         </nav>
         <header>
             <div class="header-content">
@@ -157,16 +153,12 @@
         </header>
         <section class="bg-primary" id="about">   
             <div class="container" ng-hide="hidesection">
-                <!-- <div id="project01" class="project"> -->
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h2 class="section-heading h2green">PLATAFORMA FORMADA POR LOS GRUPOS FOINVERSION Y MGI,</h2>
-                        <!-- <hr class="light"> -->
                         <p class="text-faded prg1">con experiencia conjunta de más de 40 años en la inversión y desarrollo de proyectos inmobiliarios.</p>
-                        <!--  <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a> -->
                     </div>
                 </div>
-                <!-- </div> -->
             </div>
         </section>
         <section class="padd">
@@ -175,7 +167,6 @@
                 <li>Comprometidos para el desarrollo de 64 desarrollos inmobiliarios en los sectores de interés social, medio, residencial, comercial y de oficinas.</li>
                 <li>Los miembros del equipo cuentan con más de 35 años de experiencia operativa, financiera, estratégica y técnica probada en el sector, además de sólidas relaciones con desarrolladores y acceso a las zonas más prometedoras del país.</li>
             </span>
-            <!-- example -->
             <ul class="team-list">
                 <li class="col-md-6 col-lg-5ths" ng-repeat="person in people">
                     <img ng-src="img/people/{{person.img}}" width="400" height="336" alt="team-member">
@@ -198,7 +189,6 @@
                     <p style="margin: 0 auto; color: #00CC77; text-align: center;">{{person.puesto}}</p>
                 </div>
             </div>
-            <!--</ul>-->
         </section>
         <section class="moreexp">
             <h5 class="expletter">El equipo cuenta con una sólida trayectoria en el mercado </h5>
@@ -212,47 +202,40 @@
         <section class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <mapa id="lienzo"></mapa>
-                <!-- <div id="lienzo"></div> -->
             </div>        
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-repeat="edo in estados">
                 <div class="state-card" id="{{edo.id}}">
-                    <!-- <div class="col-md-4 col-lg-4"> -->
-                        <div class="state-image">
-                            <!-- <img ng-src="img/{{edo.img}}"> -->
-                            <h2 class="nomedo">{{edo.nom}}</h2>
-                        </div>
-                    <!-- </div> -->
-                    <!-- <div class="col-md-8 col col-lg-8"> -->
-                        <div class="infoedo">
-                            <div ng-repeat="owner in owners" ng-init="edo.projects[owner.id] = getProjects(edo.id, owner.id)">
-                                <div ng-class="{ 'excedente' : edo.projects[owner.id].length > 3 }">
-                                    <table class="table" >
-                                        <thead>
-                                            <tr>
-                                                <th colspan="3">{{ owner.name }}</th>
-                                            </tr>
-                                            <tr ng-if="edo.projects[owner.id].length >= 1">
-                                                <th>Proyecto</th>
-                                                <th>Cantidad</th>
-                                                <th>Tipo de inmueble</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-if="edo.projects[owner.id].length < 1">
-                                                <td colspan="3">No hay proyectos</td>
-                                            </tr>
-                                            <tr ng-repeat="m in edo.projects[owner.id]">
-                                                <td>{{ m.proyecto }}</td>
-                                                <td>{{ m.cantidad | number }}</td>
-                                                <td>{{ m.tipoinmueble }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                 
-                                </div>
+                    <h2 class="nomedo">{{edo.nom}}</h2>
+                    <div class="infoedo">
+                        <div ng-repeat="owner in owners" ng-init="edo.projects[owner.id] = getProjects(edo.id, owner.id)">
+                            <div ng-class="{ 'excedente' : edo.projects[owner.id].length > 3 }">
+                                <table class="table" >                                        
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">{{ owner.name }}</th>
+                                        </tr>
+                                        <tr ng-if="edo.projects[owner.id].length >= 1">
+                                            <th>Proyecto</th>
+                                            <th>Cantidad</th>
+                                            <th>Tipo de inmueble</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-if="edo.projects[owner.id].length < 1">
+                                            <td colspan="3">No hay proyectos</td>
+                                        </tr>
+                                        <tr ng-repeat="m in edo.projects[owner.id]">
+                                            <td>{{ m.proyecto }}</td>
+                                            <td>{{ m.cantidad | number }}</td>
+                                            <td>{{ m.tipoinmueble }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>                 
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <section class="infoprg4 col-sm-12 col-lg-12">
@@ -311,12 +294,8 @@
                     </li>
                     <li class="col-sm-12 col-md-4 col-lg-4 lsn">
                         <h4>RANGO DE PRECIO</h4>
-                        <!--
-                        <slider floor="0" ceiling="5000000" ng-model-low="lower_price_bound" ng-model-high="upper_price_bound"></slider>
-                        -->
                     <rzslider rz-slider-model="minRangeSlider.minValue" rz-slider-high="minRangeSlider.maxValue" rz-slider-options="minRangeSlider.options"></rzslider>
                     </li>
-                    <!-- <div range-slider="" prevent-equal-min-max="" attach-handle-values="" step="{{sliderConfig.step}}" min="runSliderConfig.min" max="runSliderConfig.max" model-min="sliderRanges.runMin" model-max="sliderRanges.runMax" filter="hourMinFilter" filter-options="{{runSliderConfig.max}}"></div> -->
                 </ul>
             </section>
         </div>
