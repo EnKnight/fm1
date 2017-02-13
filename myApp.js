@@ -1,8 +1,5 @@
 var myApp = angular.module('myApp',['rzModule', 'ngAnimate', 'ngSanitize', 'mgcrea.ngStrap', 'ui.select', 'uiSlider', 'ng-fusioncharts']);
 
-//myApp.directive('myDirective', function() {});
-//myApp.factory('myService', function() {});
-
 myApp.controller('MyCtrl',['$scope', '$filter','$http','mapaSVG' , function ($scope, $filter,$http, mapaSVG) {
     $scope.minRangeSlider = {
         minValue: 0,
@@ -16,19 +13,11 @@ myApp.controller('MyCtrl',['$scope', '$filter','$http','mapaSVG' , function ($sc
             }
         }
     };
-    /*var holis = mapaSVG.prueba('Marianita');
-    console.log(holis);*/
   $scope.filterrange = function(item) {
-    /*
-    console.log('item.min_price: ' + item.min_price);
-    console.log('$scope.lower_price_bound: ' + $scope.lower_price_bound); */
     return (item.rangoprecio >= $scope.minRangeSlider.minValue && item.rangoprecio <= $scope.minRangeSlider.maxValue);
   };
 
   $scope.priceRange = function(item) {
-    /*
-    console.log('item.min_price: ' + item.min_price);
-    console.log('$scope.lower_price_bound: ' + $scope.lower_price_bound); */
     return (item.rangoprecio >= $scope.lower_price_bound && item.rangoprecio <= $scope.upper_price_bound);
   };
     $scope.test = "Yes";
@@ -129,7 +118,7 @@ myApp.controller('MyCtrl',['$scope', '$filter','$http','mapaSVG' , function ($sc
       }
     }
 
-    $scope.owners = [{ id: 'mgi', name: 'MGI' }, { id: 'foinversion', name: 'FOINVERSION' }];
+    $scope.owners = [{ id: 'mgi', name: 'MGI' }, { id: 'foinversion', name: 'FOINVERSION'}];
 
     $scope.getOwnerName = function(id){
       return $scope.owners.filter(function(o){ return o.id === id; }).name;
@@ -591,93 +580,7 @@ myApp.controller('MyCtrl',['$scope', '$filter','$http','mapaSVG' , function ($sc
       {
         "id": "pue",
         "nom": "Puebla"
-      }
-
-      /*{
-        "id": "ags",
-        "img": "casa1.png",
-        "nom": "Aguascalientes",
-        "proyectos": 4,
-        "desc": "Viviendas",
-        "totaldesc": 597
-      },
-      {
-        "id": "bcn",
-        "img": "casa1.png",
-        "nom": "Baja California",
-        "proyectos": 2,
-        "desc": "Viviendas",
-        "totaldesc": 720
-      },
-      
-      {
-        "id": "df",
-        "img": "casa1.png",
-        "nom": "Ciudad de México",
-        "proyectos": 19,
-        "desc": "Viviendas",
-        "totaldesc": 2279
-      },
-      
-      {
-        "id": "gua",
-        "img": "casa1.png",
-        "nom": "Guanajuato",
-        "proyectos": 1,
-        "desc": "Viviendas",
-        "totaldesc": 880
-      },
-      {
-        "id": "gro",
-        "img": "casa1.png",
-        "nom": "Guerrero",
-        "proyectos": 2,
-        "desc": "Viviendas",
-        "totaldesc": 22
-      },      
-      {
-        "id": "jal",
-        "img": "casa1.png",
-        "nom": "Jalisco",
-        "proyectos": 6,
-        "desc": "Viviendas",
-        "totaldesc": 804
-      },
-      {
-        "id": "mex",
-        "img": "casa1.png",
-        "nom": "Estado de México",
-        "proyectos": 2,
-        "desc": "Viviendas",
-        "totaldesc":13192
-      },
-      
-      {
-        "id": "mor",
-        "img": "casa1.png",
-        "nom": "Morelos",
-        "proyectos": 1,
-        "desc": "Oficinas",
-        "totaldesc": 192
-      },
-      
-      {
-        "id": "pue",
-        "img": "casa1.png",
-        "nom": "Puebla",
-        "proyectos": 2,
-        "desc": "Viviendas",
-        "totaldesc": 334
-      },
-      {
-        "id": "que",
-        "img": "casa1.png",
-        "nom": "Querétaro",
-        "proyectos": 3,
-        "desc": "Viviendas",
-        "totaldesc": 360
-      }*/
-      
+      }      
     ];
 }]);
 
@@ -743,13 +646,9 @@ myApp.factory('mapaSVG', function(){
   var country = {};
 
   return{
-    prueba: function(nom){
-      return "Ya funciona "+nom+"!!! :D";
-    },
     getMapName: function(pais){
       switch(pais){
         case 'mex':
-          // console.log('México :3');
           //Aguascalientes
           country.ags = "M390.24,367.07L387.9,364.81L387.83,363.6L389.07,360.73L392.4,356.14L393.33,352.9L394.4,352.17L396.19,351.79L399.66,349.82L400.87,348.9L401.26,347.64L401.99,347.47L402.76,348.86L404.09,350.2L408.53,352.83L409.12,355.27L410.26,357.31L410.26,357.31L410.52,357.9L410.28,359.5L412.24,361.64L407.96,363.61L405.41,367.16L404.69,367.66L401.67,368.7L400.41,368.76L398.24,367.74L396.5,366.33L392.29,365.95z";
           //Baja California Norte
@@ -844,7 +743,6 @@ myApp.factory('mapaSVG', function(){
           //Yukon
           country.yuk = "M40.86,774.22l-0.01,6.8l0,7.11l0,7.02l0,6.93l0.1,1.04l0.3,0.86l1.22,1.17l0.28,0.37l0.23,0.55l0.35,1.47l-0.08,1.5l0,0.64l0.17,0.67l0.16,0.43l0.11,0.49l0.21,1.16l-0.02,0.39l-0.38,1.42l-0.61,1.04l-0.02,0.42l-0.03,0.65l0.01,1.07l0.26,1.2l0.23,0.48l0.39,0.24l2.57,0l2.57,0l2.57,0l2.57,0h2.57l2.57,0l2.57,0l0.56,0l0.02,0.73l0.2,0.66l0.96,0.94l0.68,0.94l0.48,0.98l0.1,0.75l-0.13,0.75l-0.07,0.43l0.06,0.5l0.25,0.61l0.02,0.34l0.04,0.42l0.34,0.44l0.66,1.02l0.15,0.46l-0.13,0.66l-0.08,0.61l0.06,0.83l-0.02,0.44l-0.18,0.16l-0.28,0.03l-0.3,0.1l-0.18,0.53l-0.27,1.52l-0.09,0.5l0.09,0.47l0.27,0.02l0.97,0.07l0.35,0.11l0.26,0.23l0.11,0.81l0.04,0.9l-0.02,0.71l-0.22,0.59l-0.59,0.85l-0.16,0.35l0.01,0.48l0.27,0.54l0.19,0.86l0.02,0.79l0.29,0.26l0.8,0.16l0.79,-0.01l1.64,-1.1l1.68,-0.47l0.93,-0.02l0.18,0.25l0.01,0.35l-0.21,0.55l-0.25,0.94l0.18,0.37l0.41,0.07l0.73,-0.32l0.49,-0.95l0.47,-0.58l0.89,-0.69l0.33,0.12l0.84,0.77l1.01,-0.1l0.25,0.32l0.02,0.52l-1.78,1.52l-0.14,0.64l0.19,0.51l0.4,0.31l1,1.16l0.74,1.1l0.89,1.92l0.01,0.65L78.3,852l-0.7,2.04l-1.76,2.21l-0.22,0.87l-0.27,0.43l-1.48,1.18l-0.1,0.46l0.05,0.4l0.15,0.25l0.39,0.13l0.88,-0.3l0.27,-0.07l0.35,0.31l0.02,1.3l0.2,0.32l1.21,0.41l0.26,0.38l-0.01,0.4l-0.24,0.36l-0.9,1.09l-0.14,0.27l0,0.95l-0.07,0.61l-0.71,0.88l-0.15,0.33l0.01,0.37l0.1,0.3l0.31,0.29l1.36,0.06l0.73,0.31l1.92,1.27l0.48,0.38l1.43,2.24l1.26,0.67l0.21,0.23l0.12,0.39l-0.13,0.54l-0.54,1.31l-0.11,0.4l0.05,0.39l0.3,0.15l1.59,0l0.66,-0.27l0.57,-0.47l0.45,-0.74l0.36,-0.15l0.84,0.24l1.42,0.96l0.76,1.58l-0.04,0.54l0.13,0.52l0.27,0.28l0.46,0.83l0.16,0.55l0,0.51l-0.25,0.56l0.1,0.31l0.52,0.92l0.23,0.65l0.49,0.37l0.31,0.77l0.87,0.87l1.32,0.62l1.34,1.42l0.73,0.56l1.28,0.3l0.19,0.29l-0.03,0.41l-0.22,0.23l-1.03,0.5l-0.35,0.33l-0.04,0.35l0.16,0.36l0.37,0.15l0.91,-0.39l0.28,0.05l0.12,0.32l0.14,0.58l0.17,0.29l0.78,0.4l0.27,0.59l0.52,0.63l0.29,0.67l0.09,0.72l-0.54,1.6l-0.39,0.6l-1.37,1.14l-0.34,0.51l0.06,0.34l0.66,0.3l0.73,0.9l0.65,0.56l0.32,0.61l0.38,1.29l0.83,0.43l0.94,0.04l0.16,0.19l-0.05,0.42l-0.86,2.1l0,0.7l-0.13,0.59l0.09,0.65l0.54,1.08l0.14,0.39l0.06,0.55l0.15,0.31l0.68,0.47l0.17,0.28l0.27,1.06l0.04,0.4l0.37,0.36l2.13,1.29l0.19,0.45l-0.09,0.39l-0.79,0.56l-0.08,0.31l0.02,0.27l0.4,0.44l0.09,0.3l-0.46,0.98l-0.02,0.54l0.44,1.11l0.1,0.32l-0.06,0.34l-0.2,0.35l-0.07,0.33l0.13,0.26l0.41,0.33l0.65,0.2l1.1,-0.12l0.95,0.24l0.25,0.15l0.35,0.73l0.24,0.17l0.34,-0.1l0.87,-0.83l0.56,-0.19l0.49,0.1l1.44,1.59l0.3,0.82l0.97,1.2l0.24,0.84l0.23,0.35l1.01,0.46l0.42,0.53l0.24,0.64l0.23,1.29l1.67,1.74l0.84,0.58l0.51,0.68l0.43,0.36l1.26,0.42l1.51,-0.03l0.63,0.33l0.56,0.56l0.45,1.13l0.39,0.64l0.46,2.48l0.06,0.72l-0.11,1.32l-0.5,0.61l-0.13,0.23l0.03,0.2l0.34,0.36l0.81,-0.23l0.18,0.2l0.32,1.89l-0.09,1.21l0.06,0.45l0.21,0.49l-0.01,0.69l0.27,0.48l0.24,0.1l0.58,-0.2l0.92,0.23l1.3,-0.7l1.52,0.36l0.48,-0.07l0.38,-0.17l0.18,-0.28l0,-0.64l0.11,-0.23l0.55,-0.18l0.42,0.05l0.14,0.63l0.31,0.24l0.55,0.13l0.41,-1.03l0.23,-0.32l0.29,-0.14l0.32,0l1.41,0.91l2.94,0.9l0.5,-0.01l0.83,-0.62l0.7,-0.33l2.43,-0.29l0.19,-1.17l0.2,-0.44l0.28,-0.24l1.71,0.01l0.3,0.14l0.68,2.4l0.01,0.62l-0.95,1.6l0,0.35l0.11,0.37l1.17,1.73l0.59,1.33l1.38,0.38l0.21,0.38l0.19,1.81l0.18,0.58l0.73,1.73l0.95,1.78l0.05,0.49l-0.19,0.7l0.02,0.25l0.15,0.1l1.02,0.01l0.34,0.35l0.21,0.34h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53h-8.53l-8.62,-0.01l-1.15,-1.47l0.43,-1.6l0.52,-1.92v-1.16l-1.39,0.07l-2.09,0.11l-1.87,0.1l-1.38,1.36l-1.28,1.26l-2,-0.98l-2.29,-1.12l-0.65,1.47l-2.13,-0.74L0,955.3V950v-5.35v-5.4v-5.45v-5.5v-5.55v-5.61v-5.66v-5.72v-5.78v-5.84v-5.9v-5.96v-6.02v-6.08v-6.15v-6.22v-6.29v-6.36v-6.43v-6.51v-6.58v-6.66v-6.74v-6.83v-6.91v-7v-7.09v-7.18v-7.28v-7.38v-7.47l1.27,0.4l4.08,0.84l3.84,-0.5l7.13,2.72l4.41,5.06l3.58,2.47l1.46,1.69l2.32,1.49l5.46,3.22l1.7,0.33l3.17,1.54l1.96,-0.2L40.86,774.22zM17.56,756.99l-0.74,0.96l-1.18,-1.01l-0.31,-0.5l1.36,-1.33l0.6,0.05l1.27,0.79l0.47,0.7L17.56,756.99z";
           break;
-
       }
       return country;
     }
@@ -946,7 +844,7 @@ myApp.directive('mapa', ['$http','mapaSVG', function ($http, mapaSVG) {
           proys[edo.id] = true;
           mex[edo.id].animate({fill: "#CD92FF",stroke: "#fff"},500);
         });
-        actual = "df";
+        actual = "ags";
         //Recorre el vector que contiene a los estados, para verificar si tienen proyectos, y de ser así habilitarlos
         for (var estado in mex) {
           //En este caso el color #5c3082 es el color más parecido al morado del diseño original :D
@@ -962,74 +860,52 @@ myApp.directive('mapa', ['$http','mapaSVG', function ($http, mapaSVG) {
             edo[0].onmouseover = function () {
             // Esta parte es para ver si el usuario aún no comienza a navegar por el mapa, para qu emuestre la información de Aguascalientes
               if (moved == 0) {
-                document.getElementById("ags").style.display = "block";
+                document.getElementById("df").style.display = "block";
               }
               if (seleccionado < 1) {
                 moved++;
                 if (proys[estado]) {
                   /*actual && */mex[actual].animate({fill: "#CD92FF", stroke: "#fff"}, 500) && (document.getElementById(actual).style.display = "");
                   edo.animate({fill: edo.color, stroke: "#fff"}, 500);
-                  // mex[estado].animate({fill: "#CD92FF", stroke: "#fff"},500);
                   edo.toFront();
-                  //R.safari();
-                  //document.getElementById(estado).style.display = "block";
                   actual = estado;
                 } else {
                   edo[0].style.cursor = "auto";
-                  // mex[estado].animate({fill: "#CD92FF", stroke: "#fff"},500);
                   /*actual && */mex[actual].animate({fill: "#CD92FF", stroke: "#fff"}, 500) && (document.getElementById(actual).style.display = "");
                   edo.animate({fill: "#ababab", stroke: "#fff"}, 500);
                   edo.toFront();
-                  //R.safari();
                 }
               } else {
                   if (estado != actual) {
                     if (proys[estado]) {
-                      //console.log("Posibilidad de pintar diferente los estados aqui :D");
-                      //actual && mex[actual].animate({fill: "#e5e5e5", stroke: "#fff"}, 500) && (document.getElementById(actual).style.display = "");
                       edo.animate({fill: "#CD92FF", stroke: "#fff"}, 500);
                       edo.toFront();
-
-                      //R.safari();
-                      //document.getElementById(estado).style.display = "block";
-                      //actual = estado;
                     } else {
                       edo[0].style.cursor = "auto";
                       edo.animate({fill: "#ababab", stroke: "#fff"}, 500);
                       edo.toFront();
-                      // R.safari();
                     }
                   }
               }
-              //console.log(estado);
-              //console.log(actual);
             };
-            //Cuando el usuario mueva el mouse, que vuelva a colorear el mapa del fondo pseudoblanco en 500ms
             edo[0].onmouseout = function () {
               if(seleccionado < 1){
-                // console.log("Ok, vamos a averiguar como pintar de lila aquellos estados con proyectos");
-                // console.log(edo[0]);
                 if(proys[estado]){
-                  // console.log("Aquí se pintarían de lila de nuevo al estado "+estado);
                   mex[estado].animate({fill: "#CD92FF",stroke: "#fff"},500);
-                  /*edo.animate({fill: "#CD92FF", stroke: "#fff"}, 500);
-                  edo.toFront();*/
                 } 
               }
               if (estado != actual) {
                 if(proys[estado]){
-                  // console.log("Aquí se pintarían de lila de nuevo");
                   edo.animate({fill: "#CD92FF", stroke: "#fff"}, 500);
                   edo.toFront();
                 } else{
                   edo.animate({fill: "#d1d1d1", stroke: "#fff"}, 500);
                   edo.toFront();
-                  //R.safari();
                 }
               }
             };
             //que cuando recién cargue la página, que coloree a Aguascalientes
-            if (estado == "ags") {
+            if (estado == "df") {
               edo[0].onmouseover();
             }
             //animación al darle click
@@ -1042,24 +918,15 @@ myApp.directive('mapa', ['$http','mapaSVG', function ($http, mapaSVG) {
                     /*actual &&*/ mex[actual].animate({fill: "#CD92FF", stroke: "#fff"}, 500) && (document.getElementById(actual).style.display = "");
                     edo.animate({fill: edo.color, stroke: "#ccc"}, 500);
                     edo.toFront();
-                    //R.safari();
-                    //document.getElementById(estado).style.display = "block";
                     actual = estado;
-                    //edo[0].onmouseover();
                   }
                 } else {
-                  //document.getElementById(estado).style.display = "block";
                   /*actual &&*/ mex[actual].animate({fill: "#CD92FF", stroke: "#fff"}, 500) && (document.getElementById(actual).style.display = "block");
                   edo.animate({fill: edo.color, stroke: "#ccc"}, 500);
                   edo.toFront();
-                  //R.safari();
-                  //document.getElementById(estado).style.display = "block";
                   actual = estado;
-                  //edo[0].onmouseover();
                 }
-              }
-              //console.log(estado);
-              //console.log(actual);                        
+              }                       
             };
           })(mex[estado], estado);
         }
